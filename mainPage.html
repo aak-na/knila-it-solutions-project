@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Advanced Task Manager Web App</title>
+<link rel="stylesheet" href="style.css">
+<!-- Google Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+<body>
+
+<header id="app-header">
+  <h1>TaskManager</h1>
+  <nav id="header-nav" role="navigation" aria-label="Task filters">
+    <button type="button" data-filter="all" class="active" aria-pressed="true">All Tasks</button>
+    <button type="button" data-filter="pending" aria-pressed="false">Pending Tasks</button>
+    <button type="button" data-filter="done" aria-pressed="false">Done Tasks</button>
+    <button id="dark-mode-toggle" aria-label="Toggle dark and light mode" title="Toggle dark/light mode">  
+       <!-- style="visibility: hidden;" -->
+     
+      <span class="material-icons" id="dark-mode-icon">dark_mode</span>
+    </button>
+     <button id="logout-btn"  onclick="logout()" aria-label="Logout" >Logout</button>
+  </nav>
+  <!-- style="position:absolute; right:16px; top:16px;" -->
+
+</header>
+
+<div id="app-content" role="main">
+  <aside id="sidebar" role="navigation" aria-label="task Manager sidebar">
+    
+    <h2>Your Tasks</h2>
+    <div id="project-list" role="list" tabindex="0" aria-label="List of task">
+        
+      
+    </div>
+    <button id="add-project-btn">+ Add Project</button>
+
+    
+    </aside>
+
+  <section id="main-content" aria-label="Task lists">
+    <!-- lists rendered here -->
+  </section>
+
+  <section id="detail-panel" class="hidden" role="dialog" aria-modal="true" aria-labelledby="detail-title" tabindex="-1">
+    <button id="detail-close-btn" aria-label="Close task details">
+      <span class="material-icons">close</span>
+    </button>
+    <h3 id="detail-title">Task Details</h3>
+    <section id="detail-content">
+      <div id="detail-description">
+        <label for="task-desc-textarea">Description</label>
+        <textarea id="task-desc-textarea" rows="4" placeholder="Add task description..."></textarea>
+      </div>
+      <div id="detail-priority">
+        <label for="task-priority-select">Priority</label>
+        <select id="task-priority-select" aria-label="Select task priority">
+          <option value="urgent">Urgent</option>
+          <option value="high">High</option>
+          <option value="medium" selected>Medium</option>
+          <option value="low">Low</option>
+        </select>
+      </div>
+      <div id="detail-due-date">
+        <label for="task-due-input">Due Date</label>
+        <input type="date" id="task-due-input" aria-label="Set task due date" />
+      </div>
+      <div id="detail-status">
+        <label for="task-status-select">Status</label>
+        <select id="task-status-select" aria-label="Select task status">
+          <option value="todo">To Do</option>
+          <option value="inprogress">In Progress</option>
+          <option value="done">Done</option>
+        </select>
+      </div>
+      <div id="detail-tags">
+        <label for="task-tags-input">Tags (comma separated)</label>
+        <input type="text" id="task-tags-input" placeholder="Add tags ..." aria-label="Add tags comma separated" />
+      </div>
+      <div id="detail-assignee">
+        <label for="task-assignee-input">Assignee</label>
+        <input type="text" id="task-assignee-input" placeholder="Assign to..." aria-label="Assign task to user" />
+      </div>
+      <button id="task-save-btn" aria-label="Save task changes" style="background: var(--color-primary); border:none; padding:12px 16px; border-radius:12px; font-weight:700; color:#fff; margin-top: 12px; cursor:pointer;">Save Changes</button>
+    </section>
+  </section>
+</div>
+
+<footer id="app-footer">
+  &copy; 2024 TaskManager App. Built By Aakash Nambu.
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>
